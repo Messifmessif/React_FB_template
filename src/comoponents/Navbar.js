@@ -36,7 +36,7 @@ const UserBox = styled(Box)(({ theme }) => ({
 }));
 export default function Navbar() {
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" color="secondary">
       <StyledToolbar>
         {/* TITLE COMPONENT  */}
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
@@ -50,7 +50,9 @@ export default function Navbar() {
         </Search>
         {/* ICONS COMPONENT */}
         <Icons>
-          <Notifications />
+          <Badge badgeContent={3} color="error">
+            <Notifications />
+          </Badge>
           <Badge badgeContent={4} color="error">
             <MailIcon sx={{ color: "white" }} />
           </Badge>
@@ -60,6 +62,7 @@ export default function Navbar() {
             sx={{ width: 30, height: 30 }}
           />
         </Icons>
+
         <UserBox>
           <Avatar
             alt="Remy Sharp"

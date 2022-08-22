@@ -1,6 +1,21 @@
 import React from "react";
 import { Box } from "@mui/system";
+import Posts from "./Posts";
 
 export default function Feed() {
-  return <Box bgcolor='green' flex={4} p={2}>Feed</Box>;
+  const responsive={
+    padding:{
+      xs:0,
+      sm:1
+    }
+  }
+  return (
+    <Box bgcolor="" flex={4} sx={responsive}>
+      <Posts />
+      <Posts />
+      <Posts />
+      <Posts />
+      <Posts />
+    </Box>
+  );
 }
