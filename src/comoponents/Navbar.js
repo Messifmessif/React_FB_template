@@ -36,7 +36,7 @@ const UserBox = styled(Box)(({ theme }) => ({
 }));
 export default function Navbar() {
   return (
-    <AppBar position="sticky" color="secondary">
+    <AppBar position="sticky" color="secondary" elevation={0}>
       <StyledToolbar>
         {/* TITLE COMPONENT  */}
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>

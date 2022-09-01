@@ -6,16 +6,15 @@ import { Box } from "@mui/system";
 import { Stack } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-import {useState} from 'react';
-import Createpost from './comoponents/Createpost';
+import { useState } from "react";
+import Createpost from "./comoponents/Createpost";
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
-
-
 
 function App() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <ThemeProvider theme={theme}>
       <Box>
@@ -25,7 +24,11 @@ function App() {
           <Feed />
           <Rightbar />
         </Stack>
-        <Createpost open={open} setOpen={setOpen} handleOpen={handleOpen}/>
+        <Createpost
+          open={open}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+        />
       </Box>
     </ThemeProvider>
   );

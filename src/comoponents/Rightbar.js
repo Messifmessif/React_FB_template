@@ -11,6 +11,14 @@ import {
   ListItemAvatar,
   ListItemText,
 } from "@mui/material";
+const imgListItem = [
+  "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+  "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+  "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+  "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
+  "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+  "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+];
 
 export default function Rightbar() {
   const responsive = {
@@ -22,7 +30,6 @@ export default function Rightbar() {
   return (
     <Box flex={1} p={1} sx={responsive}>
       <Box position="fixed">
-        
         <Typography variant="h6" fontWeight={100} mb={2}>
           Online friends
         </Typography>
@@ -54,42 +61,11 @@ export default function Rightbar() {
           latest photos
         </Typography>
         <ImageList cols={3} rowHeight={100} gap={3} sx={{ marginRight: "5px" }}>
-          <ImageListItem>
-            <img
-              src="https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c"
-              alt=""
-            />
-          </ImageListItem>
-          <ImageListItem>
-            <img
-              src="https://images.unsplash.com/photo-1522770179533-24471fcdba45"
-              alt=""
-            />
-          </ImageListItem>
-          <ImageListItem>
-            <img
-              src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
-              alt=""
-            />
-          </ImageListItem>
-          <ImageListItem>
-            <img
-              src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62"
-              alt=""
-            />
-          </ImageListItem>
-          <ImageListItem>
-            <img
-              src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
-              alt=""
-            />
-          </ImageListItem>
-          <ImageListItem>
-            <img
-              src="https://images.unsplash.com/photo-1533827432537-70133748f5c8"
-              alt=""
-            />
-          </ImageListItem>
+          {imgListItem.map((img) => (
+            <ImageListItem key={img}>
+              <img src={img} alt="" />
+            </ImageListItem>
+          ))}
         </ImageList>
         <Typography variant="h6" fontWeight={200} mt={1} mb={1}>
           latest conversations

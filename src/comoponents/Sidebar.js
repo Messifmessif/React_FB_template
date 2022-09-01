@@ -15,6 +15,7 @@ import {
   List,
   ListItemText,
 } from "@mui/material";
+import Divider from '@mui/material/Divider';
 import React from "react";
 
 export default function Sidebar() {
@@ -84,6 +85,7 @@ export default function Sidebar() {
             </ListItemIcon>
             <ListItemText primary="Profile" />
           </ListItemButton>
+          <Divider />
         </List>
       </Box>
     </Box>
