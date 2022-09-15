@@ -22,21 +22,21 @@ const Icons = styled(Box)(({ theme }) => ({
   gap: "30px",
   alignItems: "center",
   cursor: "pointer",
-  [theme.breakpoints.down("sm")]: {
-    display: "none",
-  },
+  // [theme.breakpoints.down("sm")]: {
+  //   display: "none",
+  // },
 }));
 const UserBox = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   gap: "10px",
-  [theme.breakpoints.up("sm")]: {
-    display: "none",
-  },
+  // [theme.breakpoints.up("sm")]: {
+  //   display: "none",
+  // },
 }));
-export default function Navbar() {
+export default function Navbar({mode}) {
   return (
-    <AppBar position="sticky" color="secondary" elevation={0}>
+    <AppBar position="sticky"  elevation={0}>
       <StyledToolbar>
         {/* TITLE COMPONENT  */}
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
@@ -46,7 +46,7 @@ export default function Navbar() {
 
         {/* SEARCH COMPONENT */}
         <Search>
-          <InputBase placeholder="Search" />
+          <InputBase placeholder="Search" sx={{width:"100%",color:"#000"}}/>
         </Search>
         {/* ICONS COMPONENT */}
         <Icons>
@@ -63,7 +63,7 @@ export default function Navbar() {
           />
         </Icons>
 
-        <UserBox>
+        <UserBox sx={{display:{sm:"none"}}}>
           <Avatar
             alt="Remy Sharp"
             src="/static/images/avatar/1.jpg"

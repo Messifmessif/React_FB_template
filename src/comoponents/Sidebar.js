@@ -15,20 +15,27 @@ import {
   List,
   ListItemText,
 } from "@mui/material";
-import Divider from '@mui/material/Divider';
+import Divider from "@mui/material/Divider";
 import React from "react";
+import { Link } from "react-router-dom";
+import Switch from "@mui/material/Switch";
+import FormControlLabel from '@mui/material/FormControlLabel';
 
-export default function Sidebar() {
+export default function Sidebar({ mode, setMode }) {
   const responsive = { display: { xs: "none", sm: "block" } };
+  const listStyles = {
+    width: "100%",
+    maxWidth: "100%",
+    bgcolor: "background.paper",
+  };
+  const modeStatus = {
+    color:mode==="light"?"#000":"#fff"
+  };
   return (
     <Box bgcolor="" flex={1} p={0} sx={responsive}>
-      <Box position="fixed">
+      <Box position="fixed" pt={3} >
         <List
-          sx={{
-            width: "100%",
-            maxWidth: 360,
-            bgcolor: "background.paper",
-          }}
+          sx={listStyles}
           component="nav"
           aria-labelledby="nested-list-subheader"
           subheader={
@@ -38,12 +45,15 @@ export default function Sidebar() {
             ></ListSubheader>
           }
         >
-          <ListItemButton>
-            <ListItemIcon>
-              <Home />
-            </ListItemIcon>
-            <ListItemText primary="Homepage" />
-          </ListItemButton>
+          <Link to="/">
+            <ListItemButton>
+              <ListItemIcon>
+                <Home />
+              </ListItemIcon>
+              <ListItemText primary="Homepage" sx={modeStatus} />
+            </ListItemButton>
+          </Link>
+
           <ListItemButton>
             <ListItemIcon>
               <Article />
@@ -79,14 +89,36 @@ export default function Sidebar() {
             <ListItemText primary="Settings" />
           </ListItemButton>
 
-          <ListItemButton>
-            <ListItemIcon>
-              <AccountBox />
-            </ListItemIcon>
-            <ListItemText primary="Profile" />
-          </ListItemButton>
+          <Link to="/profile">
+            <ListItemButton>
+              <ListItemIcon>
+                <AccountBox />
+              </ListItemIcon>
+              <ListItemText primary="Profile" sx={modeStatus} />
+            </ListItemButton>
+          </Link>
+
+          <Link to="/test">
+            <ListItemButton>
+              <ListItemIcon>
+                <AccountBox />
+              </ListItemIcon>
+              <ListItemText primary="test" sx={modeStatus} />
+            </ListItemButton>
+          </Link>
           <Divider />
         </List>
+        <FormControlLabel control={
+        <Switch 
+          sx={{ marginLeft: 2 }}
+          onClick={() => {
+            setMode(prev => prev === "light" ? "dark" : "light");
+          }}
+        />
+      } 
+        
+        label={`${mode==="light"?"dark":"light"} mode`} />
+        
       </Box>
     </Box>
   );
